@@ -1,0 +1,15 @@
+[submodule "pack/plugins/opt/ctrlp"]
+	path = pack/plugins/opt/ctrlp
+	url = https://github.com/ctrlpvim/ctrlp.vim.git
+[submodule "pack/plugins/opt/yankround"]
+	path = pack/plugins/opt/yankround
+	url = https://github.com/LeafCage/yankround.vim.git
+[submodule "pack/plugins/opt/wildfire"]
+	path = pack/plugins/opt/wildfire
+	url = https://github.com/gcmt/wildfire.vim.git
+[submodule "pack/plugins/opt/lightline"]
+	path = pack/plugins/opt/lightline
+	url = https://github.com/itchyny/lightline.vim.git
+[submodule "pack/plugins/opt/undotree"]
+	path = pack/plugins/opt/undotree
+	url = https://github.com/mbbill/undotree.git
