@@ -32,13 +32,15 @@ set hlsearch
 set viminfo='100,<1000,s80
 
 """ toggle search highlight
+nnoremap <silent> <Plug>(toggleOnHlsearch) :let &hlsearch=&hlsearch<CR><C-l>
+nnoremap <silent> <Plug>(toggleOffHlsearch) :nohlsearch<CR><C-l>
 nnoremap <silent><expr> <C-l> ToggleHlsearch()
 
 function! ToggleHlsearch()
   if &hlsearch && v:hlsearch
-    call feedkeys(":nohlsearch\<CR><C-l>", 'n')
+    call feedkeys("\<Plug>(toggleOffHlsearch)", 'm')
   else
-    call feedkeys(":let &hlsearch=&hlsearch\<CR><C-l>", 'n')
+    call feedkeys("\<Plug>(toggleOnHlsearch)", 'm')
   endif
 endfunction
 
