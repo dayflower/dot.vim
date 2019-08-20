@@ -50,11 +50,12 @@ packadd ctrlp
 
 nnoremap <C-x> <Nop>
 nnoremap <C-x><Space> :<C-u>CtrlP<Space>
+nnoremap <C-x><C-f> :<C-u>CtrlP<CR>
 nnoremap <C-x><C-x> :<C-u>CtrlPMixed<CR>
 nnoremap <C-x><C-r> :<C-u>CtrlPMRUFiles<CR>
 nnoremap <C-x><C-b> :<C-u>CtrlPBuffer<CR>
 nnoremap <C-x><C-d> :<C-u>CtrlPDir<CR>
-nnoremap <C-x><C-l> :<C-u>CtrlPLine<CR>
+nnoremap <C-x><C-g> :<C-u>CtrlPLine<CR>
 nnoremap <C-x><C-q> :<C-u>CtrlPQuickfix<CR>
 nnoremap <C-x><C-t> :<C-u>CtrlPTag<CR>
 
