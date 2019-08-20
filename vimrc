@@ -31,8 +31,16 @@ set hlsearch
 " no h: preserve hlsearch setting
 set viminfo='100,<1000,s80
 
-""" erase search highlight
-nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+""" toggle search highlight
+nnoremap <silent><expr> <C-l> ToggleHlsearch()
+
+function! ToggleHlsearch()
+  if &hlsearch && v:hlsearch
+    call feedkeys(":nohlsearch\<CR><C-l>", 'n')
+  else
+    call feedkeys(":let &hlsearch=&hlsearch\<CR><C-l>", 'n')
+  endif
+endfunction
 
 """ emacs binding for command line
 cnoremap <C-p> <Up>
