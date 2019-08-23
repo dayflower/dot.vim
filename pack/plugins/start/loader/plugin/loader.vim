@@ -9,55 +9,28 @@ let g:ctrlp_map = '<Nop>'
 let g:ctrlp_match_window = 'bottom,order:ttb,min:10'
 let g:ctrlp_switch_buffer = 'e'
 
-let g:ctrlp_prompt_mappings = {
-\ 'PrtBS()':              ['<bs>', '<c-]>'],
-\ 'PrtDelete()':          ['<del>'],
-\ 'PrtDeleteWord()':      ['<c-w>'],
-\ 'PrtClear()':           ['<c-u>'],
-\ 'PrtSelectMove("j")':   ['<c-n>', '<c-j>', '<down>'],
-\ 'PrtSelectMove("k")':   ['<c-p>', '<c-k>', '<up>'],
-\ 'PrtSelectMove("t")':   ['<Home>', '<kHome>'],
-\ 'PrtSelectMove("b")':   ['<End>', '<kEnd>'],
-\ 'PrtSelectMove("u")':   ['<PageUp>', '<kPageUp>'],
-\ 'PrtSelectMove("d")':   ['<PageDown>', '<kPageDown>'],
-\ 'PrtHistory(-1)':       [],
-\ 'PrtHistory(1)':        [],
-\ 'AcceptSelection("e")': [],
-\ 'AcceptSelection("h")': ['<cr>', '<2-LeftMouse>'],
-\ 'AcceptSelection("t")': [],
-\ 'AcceptSelection("v")': [],
-\ 'ToggleFocus()':        ['<s-tab>'],
-\ 'ToggleRegex()':        ['<c-x>'],
-\ 'ToggleByFname()':      ['<c-d>'],
-\ 'ToggleType(1)':        ['<c-f>', '<c-up>'],
-\ 'ToggleType(-1)':       ['<c-b>', '<c-down>'],
-\ 'PrtExpandDir()':       ['<tab>'],
-\ 'PrtInsert("c")':       ['<MiddleMouse>', '<insert>'],
-\ 'PrtInsert()':          ['<c-\>'],
-\ 'PrtCurStart()':        ['<c-a>'],
-\ 'PrtCurEnd()':          ['<c-e>'],
-\ 'PrtCurLeft()':         ['<c-h>', '<left>', '<c-^>'],
-\ 'PrtCurRight()':        ['<c-l>', '<right>'],
-\ 'PrtClearCache()':      ['<F5>'],
-\ 'PrtDeleteEnt()':       ['<F7>'],
-\ 'CreateNewFile()':      ['<c-y>'],
-\ 'MarkToOpen()':         ['<c-Space>', '<c-m>'],
-\ 'OpenMulti()':          ['<c-o>'],
-\ 'PrtExit()':            ['<esc>', '<c-c>', '<c-g>'],
+function! CtrlPHorzOpenFunc(action, line)
+  call call('ctrlp#acceptfile', ['h', a:line])
+endfunction
+
+let g:ctrlp_open_func = {
+\   'files':           'CtrlPHorzOpenFunc',
+\   'mru files':       'CtrlPHorzOpenFunc',
+\   'fil + mru + buf': 'CtrlPHorzOpenFunc',
 \ }
 
 packadd ctrlp
 
 nnoremap <C-x> <Nop>
 nnoremap <C-x><Space> :<C-u>CtrlP<Space>
-nnoremap <C-x><C-f> :<C-u>CtrlP<CR>
-nnoremap <C-x><C-x> :<C-u>CtrlPMixed<CR>
-nnoremap <C-x><C-r> :<C-u>CtrlPMRUFiles<CR>
-nnoremap <C-x><C-b> :<C-u>CtrlPBuffer<CR>
-nnoremap <C-x><C-d> :<C-u>CtrlPDir<CR>
-nnoremap <C-x><C-g> :<C-u>CtrlPLine<CR>
-nnoremap <C-x><C-q> :<C-u>CtrlPQuickfix<CR>
-nnoremap <C-x><C-t> :<C-u>CtrlPTag<CR>
+nnoremap <silent> <C-x><C-f> :<C-u>CtrlP<CR>
+nnoremap <silent> <C-x><C-x> :<C-u>CtrlPMixed<CR>
+nnoremap <silent> <C-x><C-r> :<C-u>CtrlPMRUFiles<CR>
+nnoremap <silent> <C-x><C-b> :<C-u>CtrlPBuffer<CR>
+nnoremap <silent> <C-x><C-d> :<C-u>CtrlPDir<CR>
+nnoremap <silent> <C-x><C-g> :<C-u>CtrlPLine<CR>
+nnoremap <silent> <C-x><C-q> :<C-u>CtrlPQuickfix<CR>
+nnoremap <silent> <C-x><C-t> :<C-u>CtrlPTag<CR>
 
 """"""" yankround
 
